@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<odoo>
+    <data>
+        <menuitem name='DemInsc' id='DemInsc_id'/>
+        <menuitem name='DemInsc sub Menu' id='DemInsc_sub_id' parent='DemInsc_id'/>
+
+        <record id='DemInsc_form' model='ir.ui.view'>
+            <field name='name'>DemInsc.form</field>
+            <field name='model'>deminsc.custom</field>
+            <field name='type'>form</field>
+            <field name='arch' type='xml'>
+            <form string='stu idea'>
+                <group>
+                    <field name='nom'/>
+                    <field name='prenom'/>
+                    <field name='tel'/>
+                    <field name='entreprise'/>
+                    <field name='adresse'/>
+	  <field name="produit" widget="selection" eval="ref('product.template.name')" /> 
+					 <field name='login'/>
+					  <field name='pwd'/>
+                </group>
+            </form>
+            </field>
+        </record>
+
+        <record id='DemInsc_tree' model='ir.ui.view'>
+            <field name='name'>DemInsc.tree</field>
+            <field name='model'>deminsc.custom</field>
+            <field name='type'>tree</field>
+            <field name='arch' type='xml'>
+            <tree string='stu idea'>
+                <field name='nom'/>
+                <field name='prenom'/>
+                <field name='tel'/>
+                <field name='entreprise'/>
+                <field name='adresse'/>
+               <field name="produit" widget="selection" eval="ref('product.template.name')" /> 
+                 <field name='login'/>
+	        <field name='pwd'/>
+            </tree>
+            </field>
+        </record>
+
+        <record id='DemInsc_action' model='ir.actions.act_window'>
+
+            <field name='name'>DemInsc</field>
+            <field name='res_model'>deminsc.custom</field>
+            <field name='view_type'>form</field>
+            <field name='view_mode'>tree,form</field>
+        </record>
+
+        <menuitem name='DemInsc' id='exam_sub_menu' parent='DemInsc_sub_id' action='DemInsc_action'/>
+
+    </data>
+</odoo>
